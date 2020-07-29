@@ -1,0 +1,202 @@
+$font-family: 'Poppins', 'Prompt', sans-serif
+$main-color: #214d90
+$normal-color: #333333
+$bold: 600
+$semibold: 500
+$regular: 400
+$navH: 110px
+$navHsticky: 80px
+$navHxs: 80px
+$navHstickyxs: 60px
+$bp-minxl: 1361px
+$bp-xl: 1360px
+$bp-lg: 1199px
+$bp-ipad: 1024px
+$bp-ipadsmall: 991px
+$bp-mobile: 767px
+
+@import bootstrap/bootstrap
+@import _rem
+@import animate.css
+@import jquery.fullPage.css
+@import jquery.mCustomScrollbar.min.css
+@import jquery-ui.min.css
+@import owl.carousel.min.css
+@import owl.theme.default.min.css
+@import jquery.fancybox.min.css
+@import bootstrap-datepicker.standalone.css
+@import flexslider.css
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Prompt:wght@400;500;600&display=swap')
+    
+@mixin transition($x...)
+    -webkit-transition: $x
+    -moz-transition: $x
+    -ms-transition: $x
+    -o-transition: $x
+    transition: $x
+
+=keyframes($name)
+    @-webkit-keyframes #{$name}
+        @content
+    @-moz-keyframes #{$name}
+        @content
+    @-ms-keyframes #{$name}
+        @content
+    @keyframes #{$name}
+        @content
+
+@mixin animation($str) 
+    -webkit-animation: $str
+    -moz-animation: $str
+    -ms-animation: $str
+    -o-animation: $str
+    animation: $str 
+    
+html
+    font-size: 16px
+    
+body
+    font: 100% $font-family
+    color: $normal-color
+    
+.container
+    width: 100%
+
+h1, h2, h3, h4, h5, h6
+    font-weight: $semibold
+    
+strong, b
+    font-weight: $semibold    
+    
+figure
+    margin: 0
+a
+    &:hover
+        text-decoration: none 
+*
+    &:focus
+        outline: none !important
+
+.banner
+    padding: 0
+    position: relative
+     
+.mainnav
+    background-color: #666
+    height: $navH
+    position: fixed
+    width: 100%
+    margin: 0
+    left: 0
+    top: 0
+    @include transition(all 0.5s ease-in-out)
+    z-index: 968
+    .wrap_mainmenu
+        .mainmenu
+            > ul
+                display: flex
+                justify-content: space-around
+                list-style: none
+                li
+                    a
+                        color: #FFF
+                    &.hassub
+                        position: relative
+                        .submenu
+                            display: none
+                            position: absolute
+                            top: 100%
+                            left: 0
+                            background-color: $main-color
+    &.sticky
+        height: $navHsticky
+        .logo 
+            a 
+                figure 
+                    img
+                        max-height: $navHsticky - 20px
+
+.logo
+    padding-left: 20px
+    a
+        padding: 5px 0
+        display: inline-block
+        figure
+            img
+                display: inline-block
+                width: 100%
+                height: auto
+                max-width: 100%
+                max-height: $navH - 10px
+                @include transition(all 0.5s ease-in-out)
+                                                
+.btn_mainmenu
+    display: none
+    text-align: right
+    margin-top: 7px
+    .button_menu
+        display: inline-block
+        text-align: right
+        .menu_symbol
+            display: inline-block
+            width: 22px
+            vertical-align: middle
+            span
+                display: block
+                height: 3px
+                background-color: $main-color
+                margin-bottom: 3px
+                @include transition(all 0.3s ease-in-out)
+                &:nth-child(1)
+                    width: 45%
+                &:nth-child(2)
+                    width: 100%
+                &:nth-child(3)
+                    width: 75%
+                    margin-bottom: 0
+        .menu_text
+            color: $main-color
+            display: inline-block
+            padding-left: 10px
+            font-size: rem(16px)
+            vertical-align: bottom
+            font-weight: 600
+        &.active
+            span
+                &:nth-child(1)
+                    transform: rotate(225deg)
+                    width: 100%
+                    position: relative
+                    top: 6px
+                &:nth-child(2)
+                    width: 0
+                &:nth-child(3)
+                    transform: rotate(-225deg)
+                    width: 100%
+                    position: relative
+                    top: -6px
+    
+                     
+/*RESPONSIVE*/
+@media (min-width: $bp-minxl)
+    .container
+        max-width: 1300px
+        
+@media (max-width: $bp-xl)
+        
+@media (max-width: $bp-lg)
+    
+@media (max-width: $bp-ipad)     
+    
+@media (max-width: $bp-ipadsmall)
+    .btn_mainmenu
+        display: block
+        
+    .mainnav
+        .wrap_mainmenu
+            .mainmenu
+                > ul
+                    display: none
+    
+@media (max-width: $bp-mobile)
+    
